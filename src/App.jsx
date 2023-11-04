@@ -141,7 +141,7 @@ function App() {
   }
   return (
     <div className="face-authentication-by-sonpt ">
-      <h1>Mời bạn xác thực khuôn mặt để truy cập vào hệ thống </h1>
+      <h1>Mời bạn xác thực khuôn mặt để truy cập vào hệ thống nha</h1>
 
       <button className="action face-registration" onClick={faceRegistration}>Đăng kí khuôn mặt</button>
       <button className="action face-sign-in" onClick={faceSignIn}>Đăng nhập với khuôn mặt</button>
