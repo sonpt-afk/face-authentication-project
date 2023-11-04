@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+.face-authentication-by-sonpt {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  gap: 20px;
+}
+.face-authentication-by-sonpt h1{
+font-size: 3rem;
+font-weight: bold;
+font-family: 'Roboto', sans-serif;
+}
+
+.action {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: black;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 500px;
+  height: 60px;
+}
+.action:hover {
+  background-color: red;
+}
+
+/* My information and credit resources */
+.sonpt-author {
+  padding: 15px 40px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 900px;
+  font-size: 2rem;
+  line-height: 2rem;
+  word-break: break-word;
+  font-weight: bold;
+  display: flex;
+}
+
+
+
+.sonpt-author .avaPic {
+  width: 30%;
+}
+.iconFB{
+ 
+  margin-right: 10px;
+}
+.author-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 70%;
+}
+
+.iconCode{
+  
+  margin-right: 30px;
+}
