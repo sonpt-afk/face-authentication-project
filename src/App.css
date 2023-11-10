@@ -72,3 +72,23 @@ font-family: 'Roboto', sans-serif;
   
   margin-right: 30px;
 }
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .sonpt-author {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .sonpt-author .avaPic {
+    width: 40%;
+  }
+  .author-info{
+    width: 60%;
+  }
+  .iconCode{
+    margin-right: 10px;
+  }
+  .iconFB{
+    margin-right: 10px;
+  }
+}
