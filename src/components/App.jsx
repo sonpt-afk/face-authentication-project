@@ -4,11 +4,13 @@ import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCode} from "@fortawesome/free-solid-svg-icons";
 import {faFacebook} from "@fortawesome/free-brands-svg-icons";
-import avatarPic from './assets/zalo-ai-son.jpg'
+import avatarPic from '../assets/zalo-ai-son.jpg'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   //Xử lý Load Script của bên thứ ba trong React với Hooks
-
+  const nav = useNavigate()
 
   let faceioInstance = null
 
@@ -33,7 +35,7 @@ function App() {
     }
   }
 
-  //Function đăng ký nhận diện một khuôn mặt mới:
+
   const faceRegistration = async () => {
     try {
       const userInfo = await faceioInstance.enroll({
@@ -44,17 +46,21 @@ function App() {
           username: "sonpt",
         },
       })
+
+
       console.log(userInfo)
       console.log('Unique Facial ID: ', userInfo.facialId)
       console.log('Enrollment Date: ', userInfo.timestamp)
       console.log('Gender: ', userInfo.details.gender)
       console.log('Age Approximation: ', userInfo.details.age)
-    } catch (errorCode) {
-      console.log(errorCode)
-      handleError(errorCode)
     }
-  }
+      catch (errorCode) {
+        console.log(errorCode)
+        handleError(errorCode)
+      }
+    }
 
+  
   //Function xác thực, nhận diện một khuôn mặt đã tồn tại trong hệ thống:
   const faceSignIn = async () => {
     try {
@@ -66,6 +72,7 @@ function App() {
   
       console.log('Unique Facial ID: ', userData.facialId)
       console.log('PayLoad: ', userData.payload)
+      nav('/admin')
     } catch (errorCode) {
       console.log(errorCode)
       handleError(errorCode)
@@ -142,7 +149,6 @@ function App() {
   return (
     <div className="face-authentication-by-sonpt ">
       <h1>Mời bạn xác thực khuôn mặt để truy cập vào hệ thống</h1>
-
       <button className="action face-registration" onClick={faceRegistration}>Đăng kí khuôn mặt</button>
       <button className="action face-sign-in" onClick={faceSignIn}>Đăng nhập với khuôn mặt</button>
   

@@ -1,32 +1,35 @@
+import { useNavigate } from 'react-router-dom';
+import './Admin.css';
+import TableList from './TableList'
+
+
 export default function Admin(){
+const nav = useNavigate()
+
     return(
         <div className='admin'>
-        <div className="sidebar-main">
-            <div className="pgside">
-                <div className="pguser">
-                    <AdminPanelSettings/>
-                    <h1 className="txt">Hello Admin</h1>
-
-                    <a href="#" className="current">
-                        <Group/>
-                        <h1 className="txt">Quản lý nhân viên</h1>
-                    </a>
-                    <a href="http://localhost:5173">
-                        <Logout/>
-                        <h1 className="txt">Đăng xuất</h1>
-                    </a>
-                </div>
-                <div className="header_admin">
-                    <div className="text-header">Quản lý nhân viên</div>
-                    <button className="btn-create" onClick={showCreate}>
-                        <AddCircle/>
-                        Thêm mới nhân viên
+            <div className="admin-sidebar">
+                <div className="admin-sidebar-header">
+                    <h1 className="admin-sidebar-header-text">Hello,Admin</h1>
+                    </div>
+                    <div className="admin-sidebar-options">
+                        <div className="admin-sidebar-options-item active"><a href="">Quản lý nhân viên</a></div>
+                        <div className="admin-sidebar-options-item"><a href="http://127.0.0.1:5173/">Đăng xuất</a></div>
+                    </div>
+            </div>
+            <div className="admin-manage">
+                <div className="admin-manage-header">
+                    <h1 className="admin-manage-header-text ">Quản lý nhân viên</h1>
+                    
+                    </div>
+                    <button className="btn-add" onClick={()=>nav('/add')}>
+                        Thêm nhân viên
                     </button>
-                </div>
                 <div className="data-table">
                     <div className="title-table">Danh sách nhân viên</div>
                     <div className="">
-                        <TableHead>
+                    <TableList/>
+                        {/* <TableHead>
                             <TableRow>
                                 {columns.map((header)=>(
                                     <TableCell align="center"
@@ -45,11 +48,11 @@ export default function Admin(){
                         </TableHead>
                         <TableBody>
                             {listWorker}
-                        </TableBody>
+                        </TableBody> */}
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
+            </div>
+
     )
 }
