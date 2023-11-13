@@ -147,29 +147,16 @@ function App() {
     }
   }
   return (
-    <div className="face-authentication-by-sonpt ">
+    <div className="app">
+      <div className="app-img">
+      <img src="https://faceio.net/images/fioauth.png" alt="" />
+      </div>
+      <div className="app-content">
       <h1>Mời bạn xác thực khuôn mặt để truy cập vào hệ thống</h1>
       <button className="action face-registration" onClick={faceRegistration}>Đăng kí khuôn mặt</button>
       <button className="action face-sign-in" onClick={faceSignIn}>Đăng nhập với khuôn mặt</button>
-  
-      <div className="sonpt-author">
-      <img className="avaPic" alt="sonpt" src={avatarPic} />
-
-      <div className="author-info">
-        <div className="author-info-name">
-      <FontAwesomeIcon icon={faCode} className='iconCode'/>
-
-        <span>Developer:</span>
-          <h3>Phạm Sơn </h3>
-        
-        </div>
-    
-        
-        
-        </div>
-
-        
       </div>
+     
     </div>
   )
 }

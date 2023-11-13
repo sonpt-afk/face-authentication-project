@@ -6,6 +6,7 @@ import Add from './components/Add.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
+  
 } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -16,12 +17,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element:   <Admin />
+    element:  
+
+    <Admin />
 
   },
   {
     path: "/add",
-    element:   <Add />
+    element:   
+    <Add />
 
   },
   {
