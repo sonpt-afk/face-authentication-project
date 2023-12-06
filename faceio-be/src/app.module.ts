@@ -10,7 +10,7 @@ import { StaffsModule } from './modules/managers/staff.module';
     ConfigModule.forRoot(),
     DatabaseMongoConfig,
     AuthFaceIOModule,
-    // UsersModule,
+    UsersModule,
     StaffsModule,
   ],
   controllers: [],

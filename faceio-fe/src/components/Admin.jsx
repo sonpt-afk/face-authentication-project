@@ -23,6 +23,10 @@ export default function Admin() {
       <div className="admin-manage">
         <div className="admin-manage-header">
           <h1 className="admin-manage-header-text ">Quản lý nhân viên</h1>
+          {/* <div className="admin-manage-search-field">
+            <label htmlFor="">Tìm nhân viên </label>
+            <input type="text" placeholder="" />
+          </div> */}
         </div>
         <button className="btn-add" onClick={() => nav("/add")}>
           Thêm nhân viên

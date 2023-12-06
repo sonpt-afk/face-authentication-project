@@ -13,7 +13,7 @@ export class Staff extends Document {
   email: string;
 
   @Prop()
-  position: string;
+  position: [string];
 }
 
 export const StaffSchema = SchemaFactory.createForClass(Staff);

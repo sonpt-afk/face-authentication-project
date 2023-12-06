@@ -29,13 +29,23 @@ export class StaffsRepository
           { age: { $regex: new RegExp(search.trim(), 'i') } },
         ],
       });
+      const staffs = await this.staffRepository.aggregate([
+        {
+          $match: {
+            $or: matchConditions,
+          },
+        },
+        {
+          $skip: skip,
+        },
+        {
+          $limit: limit,
+        },
+      ]);
+
+      return staffs;
     }
     const staffs = await this.staffRepository.aggregate([
-      {
-        $match: {
-          $or: matchConditions,
-        },
-      },
       {
         $skip: skip,
       },

@@ -11,6 +11,7 @@ export enum MessageEnum {
   NOT_AUTHORIZED = 'Not authorized.',
   GET_PROFILE_SUCCESSFULLY = 'Get profile successfully.',
   GET_ALL_USERS_SUCCESSFULLY = 'Get all users successfully.',
+  DELETE_USER_SUCCESSFULLY = 'Delete user successfully.',
   UPDATE_USER_SUCCESSFULLY = 'Update user successfully.',
   GET_ALL_STAFFS_SUCCESSFULLY = 'Get all staffs successfully.',
   GET_STAFF_DETAIL_SUCCESSFULLY = 'Get staff detail successfully.',

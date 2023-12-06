@@ -25,6 +25,6 @@ export class CreateStaffDto {
   email: string;
 
   @ApiProperty()
-  @IsString()
-  position: string;
+  @IsArray()
+  position: [string];
 }

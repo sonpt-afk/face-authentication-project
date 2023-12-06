@@ -18,14 +18,14 @@ import { UsersModule } from '../users/users.module';
 })
 export class StaffsModule {
   public configure(consumer: NestMiddlewareConsumer) {
-    consumer
-      .apply(AuthMiddleware)
-      .forRoutes(
-        // { path: 'manager', method: RequestMethod.GET },
-        // { path: 'manager', method: RequestMethod.POST },
-        // { path: 'manager/:id', method: RequestMethod.GET },
-        // { path: 'manager/:id', method: RequestMethod.PUT },
-        // { path: 'manager/:id', method: RequestMethod.DELETE },
-      );
+    // consumer
+    //   .apply(AuthMiddleware)
+    //   .forRoutes(
+    //     { path: 'manager', method: RequestMethod.GET },
+    //     { path: 'manager', method: RequestMethod.POST },
+    //     { path: 'manager/:id', method: RequestMethod.GET },
+    //     { path: 'manager/:id', method: RequestMethod.PUT },
+    //     { path: 'manager/:id', method: RequestMethod.DELETE },
+    //   );
   }
 }
