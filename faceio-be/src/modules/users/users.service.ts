@@ -17,6 +17,7 @@ export class UsersService {
   }
 
   async findAllUsers(paginateDto: PaginateDto) {
+    
     return this.usersRepository.findAllUsers(paginateDto);
   }
 }
