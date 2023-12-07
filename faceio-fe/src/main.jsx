@@ -1,49 +1,40 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './components/App.jsx'
-import Admin from './components/Admin.jsx'
-import Add from './components/Add.jsx'
-import {
-  createBrowserRouter,
-  RouterProvider,
-  
-} from "react-router-dom";
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App.jsx";
+import Admin from "./components/Admin.jsx";
+import Add from "./components/Add.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DetailUser from "./components/DetailUser.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element:   <App />
+    element: <App />,
+  },
 
+  {
+    path: "/admin/:id",
+    element: <DetailUser />,
   },
   {
     path: "/admin",
-    element:  
-
-    <Admin />
-
+    element: <Admin />,
   },
   {
     path: "/add",
-    element:   
-    <Add />
-
+    element: <Add />,
   },
   {
     path: "/update",
-    element:   <Admin />
-
+    element: <Admin />,
   },
   {
     path: "/delete",
-    element:   <Admin />
-
+    element: <Admin />,
   },
 ]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-        <RouterProvider router={router} />
-
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

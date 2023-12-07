@@ -2,38 +2,41 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Form, Input } from "antd";
+import { InputNumber, Button, Form, Input } from "antd";
 function DetailUser() {
   const params = useParams();
   const [form] = Form.useForm();
-  const [listTask, setListTask] = useState();
-  const [editTask, isEdit] = useState(true);
-  const token = localStorage.getItem("token");
+  const [listUser, setlistUser] = useState();
+  const [editUser, isEdit] = useState(true);
   useEffect(() => {
     axios({
-      url: `https://backoffice.nodemy.vn/api/tasks/${params.id}?populate=*`,
+      url: `http://localhost:3000/api/manager/${params.id}`,
       method: "GET",
     }).then((res) => {
-      console.log(res.data.data);
-      setListTask(res.data.data);
+      console.log(res);
+      setlistUser(res.data.result);
     });
   }, []);
+  function onFinishFailed(errorInfo) {
+    console.log("Failed:", errorInfo);
+  }
   function onFinish(values) {
     console.log(values);
     axios({
-      url: `https://backoffice.nodemy.vn/api/tasks/${params.id}`,
+      url: `http://localhost:3000/api/manager/${params.id}`,
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
       data: {
         data: values,
       },
+      headers: {
+        "Content-Type": "application/json",
+        accept: "*/*",
+      },
     })
       .then((res) => {
-        const dataEdit = res.data.data;
-        setListTask(dataEdit);
+        console.log(res);
+        const dataEdit = res.data.result;
+        setlistUser(dataEdit);
         console.log(dataEdit);
         setTimeout(() => {
           isEdit(true);
@@ -44,64 +47,107 @@ function DetailUser() {
       });
   }
   return (
-    <div>
-      {editTask ? (
+    <>
+      {editUser ? (
         <>
-          <div style={{ margin: 0, textAlign: "center" }}>
-            <ul
-              style={{
-                listStyleType: "none",
-                display: "flex",
-                flexDirection: "column",
-                gap: 30,
-              }}
-            >
-              <li> ID : {listTask?.id}</li>
-              <li> Tiêu đề : {listTask?.attributes?.title}</li>
-              <li>
-                {" "}
-                Trạng thái :{" "}
-                {listTask?.attributes?.complete
-                  ? "Hoàn thành"
-                  : "Chưa hoàn thành"}
-              </li>
-              <li> Ngày tạo : {listTask?.attributes?.createdAt}</li>
-              <li> Ngày update : {listTask?.attributes?.updatedAt}</li>
-              <li> Ngày đăng : {listTask?.attributes?.publishedAt}</li>
-            </ul>
-            <br />
+          <div className="add-modal">
+            <div className="add-modal-content">
+              <div className="add-modal-header">
+                <h1 className="add-modal-header-text">Update nhân viên</h1>
+              </div>
+              <div className="add-modal-body">
+                <Form
+                  name="basic"
+                  labelCol={{
+                    span: 8,
+                  }}
+                  wrapperCol={{
+                    span: 16,
+                  }}
+                  style={{
+                    maxWidth: 600,
+                  }}
+                  initialValues={{
+                    remember: true,
+                  }}
+                  onFinish={onFinish}
+                  onFinishFailed={onFinishFailed}
+                  autoComplete="off"
+                >
+                  {/* Form items... */}
+                  <Form.Item
+                    label="Họ Tên"
+                    name="name"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your name!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Tuổi"
+                    name="age"
+                    rules={[
+                      {
+                        type: "number",
+                        message: "Please enter a valid number!",
+                      },
+                      {
+                        required: true,
+                        message: "Please input your age!",
+                      },
+                    ]}
+                  >
+                    <InputNumber />
+                  </Form.Item>
+                  <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your email!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Chức vụ"
+                    name="position"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your job!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+
+                  <Form.Item
+                    wrapperCol={{
+                      offset: 8,
+                      span: 16,
+                    }}
+                  >
+                    <Button type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </div>
+            </div>
           </div>
-          <Button
-            type="primary"
-            style={{ position: "relative", left: "50%" }}
-            onClick={() => {
-              isEdit(false);
-            }}
-          >
-            Sửa
-          </Button>
         </>
-      ) : (
-        <>
-          {form.setFieldsValue({
-            title: listTask?.attributes?.title,
-          })}
-          <h1>{listTask?.id}</h1>
-          <Form
-            onFinish={onFinish}
-            form={form}
-            style={{ display: "flex", flexDirection: "column", gap: 30 }}
-          >
-            <Form.Item name="title" label="Title">
-              <Input></Input>
-            </Form.Item>
-            <Button htmlType="submit" type="primary">
-              Cập nhật
-            </Button>
-          </Form>
-        </>
-      )}
-    </div>
+      ) : null}
+    </>
   );
 }
+
 export default DetailUser;
