@@ -23,12 +23,6 @@ export class UsersRepository
 
     const examples = await this.usersRepository.aggregate([
       {
-        $match: {
-          units: { $exists: true, $not: { $size: 0 } },
-          desc: search?.trim(),
-        },
-      },
-      {
         $skip: skip,
       },
       {
