@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { InputNumber, Button, Form, Input } from "antd";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import {InputNumber, Button, Form, Input} from "antd";
 function DetailUser() {
   const params = useParams();
   const [form] = Form.useForm();
@@ -25,9 +25,7 @@ function DetailUser() {
     axios({
       url: `http://localhost:3000/api/manager/${params.id}`,
       method: "PUT",
-      data: {
-        data: values,
-      },
+      data: values,
       headers: {
         "Content-Type": "application/json",
         accept: "*/*",
