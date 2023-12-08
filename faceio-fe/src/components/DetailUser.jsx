@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {InputNumber, Button, Form, Input} from "antd";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { InputNumber, Button, Form, Input } from "antd";
 function DetailUser() {
+  const nav = useNavigate();
   const params = useParams();
   const [form] = Form.useForm();
   const [listUser, setlistUser] = useState();
@@ -43,6 +44,7 @@ function DetailUser() {
       .catch((err) => {
         console.log(err);
       });
+    nav(`/admin`);
   }
   return (
     <>
@@ -51,7 +53,9 @@ function DetailUser() {
           <div className="add-modal">
             <div className="add-modal-content">
               <div className="add-modal-header">
-                <h1 className="add-modal-header-text">Update nhân viên</h1>
+                <h1 className="add-modal-header-text">
+                  Update info nhân viên {listUser.name}
+                </h1>
               </div>
               <div className="add-modal-body">
                 <Form
