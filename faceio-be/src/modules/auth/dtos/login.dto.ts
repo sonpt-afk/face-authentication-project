@@ -1,3 +1,14 @@
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString } from 'class-validator';
 
-export class LoginDto extends CreateUserDto {}
+export class LoginDto {
+  @ApiProperty({
+    required: true,
+  })
+  @IsString()
+  email: string;
+
+  @ApiProperty()
+  @IsString()
+  password: string;
+}

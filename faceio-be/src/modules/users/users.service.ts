@@ -12,12 +12,31 @@ export class UsersService {
     return await this.usersRepository.create(createUserDto);
   }
 
+  async updateUser(id: any, data: any) {
+    return await this.usersRepository.update(id, data);
+  }
+
   async findByIdUser(id: string | number) {
     return await this.usersRepository.findOne(id);
   }
 
   async findAllUsers(paginateDto: PaginateDto) {
-    
     return this.usersRepository.findAllUsers(paginateDto);
+  }
+
+  async findOneByEmail(email: string) {
+    try {
+      return await this.usersRepository.findOneBy({ email });
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async deleteUserById(id: string | number) {
+    try {
+      return await this.usersRepository.delete(id);
+    } catch (error) {
+      return null;
+    }
   }
 }

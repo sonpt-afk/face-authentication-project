@@ -1,0 +1,99 @@
+
+
+
+.faceio {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.faceio-img{
+  width: 40%;
+}
+.faceio-img{
+  width: 700px;
+}
+.faceio-content{
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: rgb(44,4,48);
+  background: linear-gradient(177deg, rgba(44,4,48,0) 0%, rgba(250,0,247,1) 38%, rgba(0,240,255,1) 100%);  
+}
+.faceio-content h1{
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+.action {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: black;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 500px;
+  height: 80px;
+}
+.action:hover {
+  background-color: red;
+}
+
+/* My information and credit resources */
+.sonpt-author {
+  padding: 15px 40px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 500px;
+  font-size: 2rem;
+  line-height: 2rem;
+  word-break: break-word;
+  font-weight: bold;
+  display: flex;
+  margin-top: 40px;
+}
+
+
+.iconFB{
+ 
+  margin-right: 10px;
+}
+
+
+.iconCode{
+  
+  margin-right: 30px;
+}
+
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .sonpt-author {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .sonpt-author .avaPic {
+    width: 40%;
+  }
+  .author-info{
+    width: 60%;
+  }
+  .iconCode{
+    margin-right: 10px;
+  }
+  .iconFB{
+    margin-right: 10px;
+  }
+}
+

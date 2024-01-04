@@ -21,6 +21,24 @@ export class UsersRepository
     const { page, limit, search } = paginateDto;
     const skip = (page - 1) * limit;
 
+    if(search) {
+      const examples = await this.usersRepository.aggregate([
+        {
+          $match: {
+            email: search?.trim(),
+            name: search?.trim(),
+            position: search?.trim(),
+          },
+        },
+        {
+          $skip: skip,
+        },
+        {
+          $limit: limit,
+        },
+      ]);
+      return examples;
+    }
     const examples = await this.usersRepository.aggregate([
       {
         $skip: skip,
@@ -29,7 +47,7 @@ export class UsersRepository
         $limit: limit,
       },
     ]);
-
     return examples;
+    
   }
 }

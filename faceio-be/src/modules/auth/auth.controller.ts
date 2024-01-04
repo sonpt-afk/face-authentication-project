@@ -9,23 +9,23 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthFaceIOService } from './auth.service';
+import { AuthService } from './auth.service';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { LoginDto } from './dtos/login.dto';
 
-@ApiTags('FaceIO SAAS')
+@ApiTags('Auth')
 @Controller('auth')
-export class AuthFaceIOController {
-  constructor(private authFaceIOService: AuthFaceIOService) {}
+export class AuthController {
+  constructor(private authService: AuthService) {}
   @Post('/signin')
   @HttpCode(HttpStatus.OK)
-  async loginFaceIO(@Body() loginDto: LoginDto) {
-    return this.authFaceIOService.loginFaceIO(loginDto);
+  async login(@Body() loginDto: LoginDto) {
+    return this.authService.login(loginDto);
   }
 
   @Post('/register')
   @HttpCode(HttpStatus.OK)
-  async registerFaceIO(@Body() createUserDto: CreateUserDto) {
-    return this.authFaceIOService.registerFaceIO(createUserDto);
+  async register(@Body() createUserDto: CreateUserDto) {
+    return this.authService.register(createUserDto);
   }
 }

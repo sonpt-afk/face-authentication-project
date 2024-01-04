@@ -20,11 +20,14 @@ export class BaseAbstractRepository<T extends Document>
 
   update(id: Types.ObjectId, updates: any, ...args: any[]): Promise<T> {
     try {
+      console.log(1111, updates);
+
       const updated: any = this.model.findByIdAndUpdate(id, updates, {
         upsert: true,
       });
       return updated;
     } catch (e) {
+      console.log(222, e);
       throw new HttpException(e.message || e, e.status || 500);
     }
   }

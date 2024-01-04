@@ -1,40 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App.jsx";
-import Admin from "./components/Admin.jsx";
-import Add from "./components/Add.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import DetailUser from "./components/DetailUser.jsx";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-
-  {
-    path: "/admin/:id",
-    element: <DetailUser />,
-  },
-  {
-    path: "/admin",
-    element: <Admin />,
-  },
-  {
-    path: "/add",
-    element: <Add />,
-  },
-  {
-    path: "/update",
-    element: <Admin />,
-  },
-  {
-    path: "/delete",
-    element: <Admin />,
-  },
-]);
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "./index.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

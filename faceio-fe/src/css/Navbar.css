@@ -1,0 +1,12 @@
+.text-navbar {
+  color: #8d3b94 !important;
+}
+
+.custom-button:hover {
+  background-color: #8d3b94;
+  color: #fff !important;
+}
+
+.custom-button-border {
+  border: 2px solid #661b6d;
+}

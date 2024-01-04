@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Inter:wght@300;400;700;800&family=Ubuntu:wght@400;700&display=swap');
+:root{
+    --text-font: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--text-font);
+    height: 100vh;
+
+}
+.admin{
+    display: flex;
+    height: 100vh;
+}
+.admin-sidebar{
+    width: 20%;
+    background: black;
+    color: white;
+}
+.admin-sidebar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    border-bottom: 1px solid #fff;
+}
+
+.admin-sidebar-options{
+    display: flex;
+    flex-direction: column;
+    
+}
+.admin-sidebar-options-item{
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        background-color: #555;
+    }
+}
+.admin-sidebar-options-item>a{
+    color: white;
+    text-decoration: none;
+
+}
+.active{
+    background-color: #555;
+
+}
+.admin-manage{
+width: 80%;
+padding: 40px;
+}
+.admin-manage-header{
+    padding: 20px 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+
+.btn-add{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0px;
+  float: right;
+    right: 200px;
+    font-weight: bold;
+    &:hover{
+        background-color: #449d44;
+        border-color: #398439;
+    }
+   
+}
+
+.title-table{
+    font-size: 25px;
+}
+.add-modal{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(44,4,48);
+  background: linear-gradient(177deg, rgba(44,4,48,0) 0%, rgba(250,0,247,1) 38%, rgba(0,240,255,1) 100%);  
+}
+
+.add-modal-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 500px;
+    border: 1px solid #000;
+    padding: 30px;
+    background: #fff;
+}
